@@ -1,6 +1,7 @@
 package com.example.model;
 
 import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 public class Person {
