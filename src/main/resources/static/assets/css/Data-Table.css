@@ -3,10 +3,8 @@
 }
 
 #mainHeader {
-  background-image: url("../../assets/img/header-bg.jpg");
-  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background: url("../../assets/img/header-bg.jpg") no-repeat center;
 }
 
 #services {
