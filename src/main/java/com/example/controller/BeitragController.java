@@ -63,7 +63,6 @@ public class BeitragController {
         } else {
             currentUserName = "null";
         }
-        System.out.println(currentUserName);
         beitrag.setMitbringerId(userRepo.findByUsername(currentUserName).getId());
         beitragRepository.save(beitrag);
         return ResponseEntity.ok().body(null);

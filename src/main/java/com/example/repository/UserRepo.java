@@ -12,5 +12,6 @@ public interface UserRepo extends CrudRepository<User, Long> {
 
     // findByUsername method for Spring Boot Security
     User findByUsername(String username);
+    User findById(int id);
 
 }

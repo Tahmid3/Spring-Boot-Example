@@ -2,12 +2,12 @@ var app = angular.module("request", []);
 
 app.controller("RequestCtrl", function ($http) {
     var controller = this;
-    controller.persons = [];
+    controller.beitraege = [];
 
 
     controller.getAllPersons = function () {
-        $http.get("/getAllPersons").then(function (value) {
-            controller.persons = value.data;
+        $http.get("/getAllBeitraege").then(function (value) {
+            controller.beitraege = value.data;
         }, function (reason) {
             window.alert("Error");
         })
@@ -21,9 +21,7 @@ app.controller("RequestCtrl", function ($http) {
             landName: landName,
             produktName: produktName
         };
-        $http.post("/newBeitrag", newBeitrag).then(function () {
-            window.location.assign("/login/login.html")
-        })
+        $http.post("/newBeitrag", newBeitrag)
     };
 
 });

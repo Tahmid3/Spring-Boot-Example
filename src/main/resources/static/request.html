@@ -16,14 +16,16 @@ Bei uns kannst du dein Gesuch aufgeben und jemand, der sich aktuell im ausgewäh
             <table class="table">
                 <thead>
                 <tr>
-                    <th style="width: 45%">First name</th>
-                    <th style="width: 45%">Last name</th>
+                    <th style="width: 45%">Mitbringer</th>
+                    <th style="width: 45%">Mitbringsel</th>
+                    <th style="width: 45%">Reiseland</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="x in requestCtrl.persons">
-                    <td>{{ x.age }}</td>
-                    <td>{{ x.age }}</td>
+                <tr ng-repeat="x in requestCtrl.beitraege">
+                    <td>{{ x.mitbringerId }}</td>
+                    <td>{{ x.produktName }}</td>
+                    <td>{{ x.landName }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -76,7 +78,7 @@ Bei uns kannst du dein Gesuch aufgeben und jemand, der sich aktuell im ausgewäh
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th>Mitbringsel</th>
+                <th>Reiseland</th>
                 <th>Von</th>
                 <th>Nach</th>
                 <th>Wer</th>
