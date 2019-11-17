@@ -12,7 +12,7 @@ public class Beitrag {
     private int id;
     private String landName;
     private String produktName;
-    private int mitbringerId;
+    private long mitbringerId;
 
     public int getId() {
         return id;
@@ -38,11 +38,11 @@ public class Beitrag {
         this.produktName = produktName;
     }
 
-    public int getMitbringerId() {
+    public long getMitbringerId() {
         return mitbringerId;
     }
 
-    public void setMitbringerId(int mitbringerId) {
+    public void setMitbringerId(long mitbringerId) {
         this.mitbringerId = mitbringerId;
     }
 

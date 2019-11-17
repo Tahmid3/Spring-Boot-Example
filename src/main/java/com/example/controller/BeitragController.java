@@ -1,10 +1,15 @@
 package com.example.controller;
 
 import com.example.model.Beitrag;
+import com.example.model.User;
 import com.example.repository.BeitragRepository;
+import com.example.repository.UserRepo;
 import com.example.service.BeitragService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +22,9 @@ public class BeitragController {
     BeitragService beitragService;
     @Autowired
     BeitragRepository beitragRepository;
+    String currentUserName = "";
+    @Autowired
+    UserRepo userRepo;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getAllBeitraege")
     private ResponseEntity getAllBeitraege() {
@@ -48,6 +56,15 @@ public class BeitragController {
     private ResponseEntity newBeitrag(@RequestBody Beitrag newBeitrag) {
 
         Beitrag beitrag = newBeitrag;
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            currentUserName = authentication.getName();
+        } else {
+            currentUserName = "null";
+        }
+        System.out.println(currentUserName);
+        beitrag.setMitbringerId(userRepo.findByUsername(currentUserName).getId());
         beitragRepository.save(beitrag);
         return ResponseEntity.ok().body(null);
     }
