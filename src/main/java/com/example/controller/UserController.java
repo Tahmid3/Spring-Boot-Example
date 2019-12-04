@@ -54,6 +54,12 @@ public class UserController {
         return ResponseEntity.ok().body(allUsers);
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/getUser/{id}")
+    private ResponseEntity getUser(@PathVariable long id) {
+        Optional<User> user= userRepo.findById(id);
+        return ResponseEntity.ok().body(user);
+    }
+
     @RequestMapping(method = RequestMethod.PUT, value = "/delUser/{id}")
     private ResponseEntity delUser(@PathVariable long id) {
         userRepo.deleteById(id);

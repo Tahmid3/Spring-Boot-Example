@@ -3,6 +3,7 @@ package com.example.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Beitrag {
@@ -13,6 +14,10 @@ public class Beitrag {
     private String landName;
     private String produktName;
     private long mitbringerId;
+    @Size(max = 30000)
+    private String pic = "";
+
+    private String beschreibung="";
 
     public int getId() {
         return id;
@@ -47,6 +52,22 @@ public class Beitrag {
     }
 
     public Beitrag() {
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 
     public Beitrag(String landName, String produktName, int mitbringerId) {
